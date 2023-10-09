@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="javascript.js"></script>
+</head>
+<body>
+    <h1>Etch a Sketch</h1>
+    <div id="board">
+        
+
+    </div>
+    <div id="buttons">
+        <button id="reset">Reset</button>
+        <button id="changeGrid">Change Grid</button>
+    </div>
+    <script>
+const reset = document.querySelector("#reset");
+reset.addEventListener("click", createBoard());
+function createBoard(size = 25){
+    squareSize = prompt("How much squares?")
+    const board = document.querySelector("#board");
+    for(let o = 0; o < 11; o++){
+        const row = document.createElement('row');
+        row.style.cssText = "display: flex; max-width: 100%; flex-direction: row;"
+        board.appendChild(row)
+    
+    for(let i = 0; i < squareSize; i++){
+        let box = document.createElement('div');
+        box.className = "boxxy"
+        box.style.cssText = "border: solid; border-width: thin; width: 20px; height: 20px; min-width: 10px; min-height: 10px;"
+        box.addEventListener("mouseover", function(){box.style.cssText = "border: solid; border-width: thin; width: 20px; height: 20px; min-width: 10px; min-height: 10px; background-color: red;"})
+        row.appendChild(box)
+    }}
+    const boxes = document.querySelectorAll(".boxxy")
+
+
+}
+
+createBoard()
+
+    </script>
+</body>
+</html>
