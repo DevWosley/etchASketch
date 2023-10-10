@@ -8,18 +8,18 @@
     <script src="javascript.js"></script>
 </head>
 <body>
+    <div id="buttons">
+        <button onclick="resetBoard()" id="reset">Reset</button>
+        <button id="changeGrid">Change Grid</button>
+    </div>
     <h1>Etch a Sketch</h1>
     <div id="board">
         
 
     </div>
-    <div id="buttons">
-        <button id="reset">Reset</button>
-        <button id="changeGrid">Change Grid</button>
-    </div>
+
     <script>
-const reset = document.querySelector("#reset");
-reset.addEventListener("click", createBoard());
+
 function createBoard(size = 25){
     squareSize = prompt("How much squares?")
     const board = document.querySelector("#board");
@@ -35,10 +35,19 @@ function createBoard(size = 25){
         box.addEventListener("mouseover", function(){box.style.cssText = "border: solid; border-width: thin; width: 20px; height: 20px; min-width: 10px; min-height: 10px; background-color: red;"})
         row.appendChild(box)
     }}
-    const boxes = document.querySelectorAll(".boxxy")
-
 
 }
+    function resetBoard(){
+    console.log("resetting board")
+    const board = document.querySelector("#board");
+    while (board.hasChildNodes()){
+        board.removeChild(board.firstChild)
+    }
+    createBoard();
+}
+const reset = document.querySelector("#reset");
+// reset.addEventListener("click", resetBoard());
+
 
 createBoard()
 
